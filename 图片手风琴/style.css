@@ -43,7 +43,9 @@ body{
     letter-spacing: .2rem;
     transition: 1s;
     cursor: pointer;
+    animation: breath 3s infinite;
 }
+
 .enter.hidden{
     font-size:0;
     opacity: 0;
@@ -240,3 +242,27 @@ body{
     }
 }
 
+
+
+.loading{
+    z-index: 99;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading i{
+    font-size: 3rem;
+    animation: loading 1s infinite;
+    animation-timing-function: steps(8);
+}
+@keyframes loading{
+    to{
+        transform: rotate(360deg);
+    }
+}

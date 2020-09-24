@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="loading">
+        <i class="fa fa-spinner" aria-hidden="true"></i>
+    </div>
     <div class="enter">
         <h1>Welcome!<i class="fa fa-sign-in"></i></h1>
     </div>
@@ -61,47 +64,55 @@
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    $(function(){
+        setTimeout(function(){
+            $(".loading i").fadeOut(500);
+            $(".loading").delay(500).fadeOut(1000);
+        },2000);
 
-    $(".forget").click(function(){
-        alert("Really forget your password?");
-    });
+        $(".forget").click(function(){
+            alert("Really forget your password?");
+        });
 
-    $(".enter").click(function(){
-        $(".container").removeClass("hidden");
-        $(".enter").addClass("hidden");
-    });
+        $(".enter").click(function(){
+            $(".container").removeClass("hidden");
+            $(".enter").addClass("hidden");
+        });
 
-    $("#close").click(function(){
-        $(".enter").removeClass("hidden");
-        $(".container").addClass("hidden");
-    });
+        $("#close").click(function(){
+            $(".enter").removeClass("hidden");
+            $(".container").addClass("hidden");
+        });
 
-    $(".container .accordion .panel").click(function(){
-        $(".container .accordion .panel").removeClass("active");
-        $(this).addClass("active");
-    });
+        $(".container .accordion .panel").click(function(){
+            $(".container .accordion .panel").removeClass("active");
+            $(this).addClass("active");
+        });
 
-    $("#login").click(function(){
-        $(".container .login-panel form .switch span").removeClass("active");
-        $(this).addClass("active");
-        $(this).parents("form").removeClass("signup").addClass("login");
-        $(".container .login-panel form button").text("login");
-    })
+        $("#login").click(function(){
+            $(".container .login-panel form .switch span").removeClass("active");
+            $(this).addClass("active");
+            $(this).parents("form").removeClass("signup").addClass("login");
+            $(".container .login-panel form button").text("login");
+        })
 
-    $("#signup").click(function(){
-        $(".container .login-panel form .switch span").removeClass("active");
-        $(this).addClass("active");
-        $(this).parents("form").removeClass("login").addClass("signup");
-        $(".container .login-panel form button").text("signup");
-    })
+        $("#signup").click(function(){
+            $(".container .login-panel form .switch span").removeClass("active");
+            $(this).addClass("active");
+            $(this).parents("form").removeClass("login").addClass("signup");
+            $(".container .login-panel form button").text("signup");
+        })
 
-    $(".container .login-panel form .input input").on("focus",function(){
-        $(this).parent().addClass("focus");
-    });
-    $(".container .login-panel form .input input").on("blur",function(){
-        if($(this).val() === ""){
-            $(this).parent().removeClass("focus");
-        }
+        $(".container .login-panel form .input input").on("focus",function(){
+            $(this).parent().addClass("focus");
+        });
+        $(".container .login-panel form .input input").on("blur",function(){
+            if($(this).val() === ""){
+                $(this).parent().removeClass("focus");
+            }
+        });
+
+
     });
 
 </script>
