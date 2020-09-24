@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="enter">
+        <h1>Welcome!<i class="fa fa-sign-in"></i></h1>
+    </div>
+    <div class="container hidden">
+        <span id="close"><i class="fa fa-times" aria-hidden="true"></i></span>
+        <div class="accordion">
+            <div class="panel active">
+                <div class="content">
+                    <h3>休闲</h3>
+                    <p>在非劳动及非工作时间内以各种“玩”的方式求得身心的调节与放松，达到生命保健、体能恢复、身心愉悦的目的的一种业余生活。</p>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="content">
+                    <h3>旅行</h3>
+                    <p>去外地办事或游览。去外地行走。不同于旅游。旅行和旅游的区别就在于：旅行是在观察身边的景色和事物，行万里路，读万卷书。</p>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="content">
+                    <h3>游戏</h3>
+                    <p>合理适度的游戏允许人类在模拟环境下挑战和克服障碍，可以帮助人类开发智力、锻炼思维和反应能力、训练技能、培养规则意识等。</p>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="content">
+                    <h3>工作</h3>
+                    <p>工作是社会分工中每个劳动者体现社会价值和自我价值的角色定位。工作的概念是劳动生产，主要是指劳动。</p>
+                </div>
+            </div>
+        </div>  
+
+        <div class="login-panel">
+            <form class="login" action="">
+                <div class="switch">
+                    <span id="login" class="active">Login</span>
+                    <span>/</span>
+                    <span id="signup" >Sign Up</span>
+                </div>
+                <div class="input" id="email" placeholder="email"><input type="text"></div>
+                <div class="input" id="username" placeholder="username"><input type="text"></div>
+                <div class="input" id="password" placeholder="password"><input type="password"></div>
+                <div class="input" id="repeat" placeholder="repeat"><input type="password"></div>
+                <div class="forget">Forget?</div>
+                <button>Login</button>
+            </form>
+        </div>
+        
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    $(".forget").click(function(){
+        alert("Really forget your password?");
+    });
+
+    $(".enter").click(function(){
+        $(".container").removeClass("hidden");
+        $(".enter").addClass("hidden");
+    });
+
+    $("#close").click(function(){
+        $(".enter").removeClass("hidden");
+        $(".container").addClass("hidden");
+    });
+
+    $(".container .accordion .panel").click(function(){
+        $(".container .accordion .panel").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    $("#login").click(function(){
+        $(".container .login-panel form .switch span").removeClass("active");
+        $(this).addClass("active");
+        $(this).parents("form").removeClass("signup").addClass("login");
+        $(".container .login-panel form button").text("login");
+    })
+
+    $("#signup").click(function(){
+        $(".container .login-panel form .switch span").removeClass("active");
+        $(this).addClass("active");
+        $(this).parents("form").removeClass("login").addClass("signup");
+        $(".container .login-panel form button").text("signup");
+    })
+
+    $(".container .login-panel form .input input").on("focus",function(){
+        $(this).parent().addClass("focus");
+    });
+    $(".container .login-panel form .input input").on("blur",function(){
+        if($(this).val() === ""){
+            $(this).parent().removeClass("focus");
+        }
+    });
+
+</script>
+</html>

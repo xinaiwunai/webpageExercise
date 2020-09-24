@@ -1,4 +1,6 @@
 body{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
     padding: 0;
     margin: 0;
     width: 100%;
@@ -8,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
 
-    color:#212121;
+    
     
     background: linear-gradient(90deg,#0097A7,#00BCD4,#B2EBF2,#00BCD4,#0097A7);
     background-size: 400%;
@@ -16,8 +18,14 @@ body{
     
 }
 
+h1{
+    font-size: 5rem;
+    color:#212121;
+}
+
 @keyframes bkflow{
     100%{
         background-position: 400% 0;
     }
 }
+
